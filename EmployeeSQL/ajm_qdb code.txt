@@ -1,0 +1,43 @@
+departments
+-
+dept_no VARCHAR(8) PK
+dept_name VARCHAR(60)
+last_updated TIMESTAMP
+
+dept_emp
+-
+id SERIAL PK 
+emp_no INTEGER FK >- employees.emp_no
+dept_no VARCHAR(8) FK >- departments.dept_no
+last_updated TIMESTAMP
+
+dept_manager
+-
+id SERIAL PK
+dept_no VARCHAR(8) FK >- departments.dept_no
+emp_no INTEGER FK >- employees.emp_no
+last_updated TIMESTAMP
+
+employees
+- 
+emp_no INTEGER PK
+emp_title VARCHAR(8) FK >- titles.title_id
+birth_date DATE
+first_name VARCHAR(100)
+last_name VARCHAR(150)
+sex VARCHAR(8)
+hire_date DATE
+last_updated TIMESTAMP
+
+salaries
+-
+id SERIAL PK
+emp_no INTEGER FK >- employees.emp_no
+salary FLOAT
+last_updated TIMESTAMP
+
+titles
+-
+title_id PK VARCHAR(8)
+title VARCHAR(60)
+last_updated TIMESTAMP
